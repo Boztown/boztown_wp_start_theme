@@ -8,7 +8,7 @@ add_action( 'wp_enqueue_scripts', 'theme_scripts' );
 
 
 function theme_styles() {
-    //wp_enqueue_style( 'skeleton-normalize', get_stylesheet_directory_uri() . '/lib/skeleton-2.0.1/css/normalize.css' );
+    wp_enqueue_style( 'normalize', get_stylesheet_directory_uri() . '/bower_components/normalize.css/normalize.css' );
     //wp_enqueue_style( 'skeleton', get_stylesheet_directory_uri() . '/lib/skeleton-2.0.1/css/skeleton.css' );
     wp_enqueue_style( 'main', get_stylesheet_uri() );
 }
