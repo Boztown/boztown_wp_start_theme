@@ -5,4 +5,4 @@
   <title><?php wp_title(); ?></title>
   <?php wp_head(); ?>
 </head>
-<body>
+<body <?php body_class( $class ); ?>>
