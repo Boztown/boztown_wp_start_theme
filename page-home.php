@@ -18,6 +18,12 @@ get_header(); ?>
     <?php endwhile; ?> 
   <?php endif; ?>
 
+  <div class="row">
+    <div class="three columns" style="background: red;">ONE</div>
+    <div class="three columns" style="background: blue;">TWO</div>
+    <div class="three columns" style="background: green;">THREE</div>
+  </div>
+
   <!-- 
   <div class="row">
     <div class="one column">One</div>

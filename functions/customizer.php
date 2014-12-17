@@ -4,27 +4,33 @@
 /**
  * Create the section
  */
-function my_custom_section( $wp_customize ) {
+function boztown_theme_sections( $wp_customize ) {
 
-  // Create the "My Section" section
-  $wp_customize->add_section( 'my_section', array(
+
+  $wp_customize->add_section( 'boztown_structural_section', array(
     'title'    => __( 'Structural / Layout', 'translation_domain' ),
     'priority' => 12
   ) );
 
+
+  $wp_customize->add_section( 'boztown_color_section', array(
+    'title'    => __( 'Colors', 'translation_domain' ),
+    'priority' => 16
+  ) );
+
 }
-add_action( 'customize_register', 'my_custom_section' );
+add_action( 'customize_register', 'boztown_theme_sections' );
 
 /**
  * Create the setting
  */
-function my_custom_setting( $controls ) {
+function boztown_theme_settings( $controls ) {
 
   $controls[] = array(
     'type'     => 'slider',
     'setting'  => 'grid_width',
     'label'    => __( 'Grid Width', 'textdomain' ),
-    'section'  => 'my_section',
+    'section'  => 'boztown_structural_section',
     'default'  => 960,
     'priority' => 1,
     'choices'  => array(
@@ -35,52 +41,46 @@ function my_custom_setting( $controls ) {
   );
 
   $controls[] = array(
+    'type'     => 'slider',
+    'setting'  => 'grid_padding',
+    'label'    => __( 'Grid Padding', 'textdomain' ),
+    'section'  => 'boztown_structural_section',
+    'default'  => 4,
+    'priority' => 1,
+    'choices'  => array(
+      'min'  => 0,
+      'max'  => 100,
+      'step' => 1,
+    ),
+  );
+
+  $controls[] = array(
     'type'     => 'color',
     'setting'  => 'body_text_color',
     'label'    => __( 'Body Text Color', 'textdomain' ),
-    'section'  => 'my_section',
+    'section'  => 'boztown_color_section',
     'default'  => '#333',
     'priority' => 1,
   );
 
   return $controls;
 }
-add_filter( 'kirki/controls', 'my_custom_setting' );
 
-function boztown_customize_register( $wp_customize ) {
+add_filter( 'kirki/controls', 'boztown_theme_settings' );
 
-  $wp_customize->add_setting( 'header_textcolor' , array(
-      'default'     => '#000000',
-      'transport'   => 'refresh',
-  ) );
 
-  $wp_customize->add_section( 'mytheme_new_section_name' , array(
-      'title'      => __( 'Colors', 'mytheme' ),
-      'priority'   => 30,
-  ) );
-
-  $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'link_color', array(
-    'label'        => __( 'Header Color', 'mytheme' ),
-    'section'    => 'mytheme_new_section_name',
-    'settings'   => 'header_textcolor',
-  ) ) );
-
-  $wp_customize->add_setting( 'grid_width' , array(
-      'default'     => '#000000',
-      'transport'   => 'refresh',
-  ) );
-
-}
-
-add_action( 'customize_register', 'boztown_customize_register' );
-
-function mytheme_customize_css()
+function boztown_customize_css()
 {
     ?>
-         <style type="text/css">
-             body { background-color: #<?php echo get_theme_mod('header_textcolor'); ?>; color: <?php echo get_theme_mod('body_text_color'); ?>; }
-             .container { max-width: <?php echo get_theme_mod('grid_width'); ?>px;}
-         </style>
+     <style type="text/css">
+         body { background-color: #<?php echo get_theme_mod('header_textcolor'); ?>; color: <?php echo get_theme_mod('body_text_color'); ?>; }
+         .container { max-width: <?php echo get_theme_mod('grid_width'); ?>px;}
+        .container .column,
+        .container .columns {
+         margin-left: <?php echo get_theme_mod('grid_padding'); ?>%; }
+     </style>
     <?php
 }
-add_action( 'wp_head', 'mytheme_customize_css');
+
+// how about putting these in the footer so devs can override using CSS in the actual stylesheets?
+add_action( 'wp_footer', 'boztown_customize_css');
