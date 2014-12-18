@@ -20,6 +20,7 @@
     "neat": "~1.7.0",
     "skeleton": "dhg/Skeleton",
     "magnific-popup": "~1.0.0",
-    "fastclick": "~1.0.3"
+    "fastclick": "~1.0.3",
+    "photoswipe": "dimsemenov/PhotoSwipe"
   }
 }
