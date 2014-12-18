@@ -18,6 +18,7 @@
     "normalize.css": "~3.0.2",
     "bourbon": "~4.0.2",
     "neat": "~1.7.0",
-    "skeleton": "dhg/Skeleton"
+    "skeleton": "dhg/Skeleton",
+    "magnific-popup": "~1.0.0"
   }
 }
