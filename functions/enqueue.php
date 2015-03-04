@@ -14,3 +14,10 @@ function theme_styles() {
 }
 
 add_action( 'wp_enqueue_scripts', 'theme_styles' );
+
+
+function my_login_stylesheet() {
+    wp_enqueue_style( 'custom-login', get_template_directory_uri() . '/style.css', false );
+}
+
+add_action( 'login_enqueue_scripts', 'my_login_stylesheet', 10 );
