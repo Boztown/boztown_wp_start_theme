@@ -1,7 +1,7 @@
 <?php 
 
 function theme_scripts() {
-    //wp_enqueue_script( 'audiojs', get_template_directory_uri() . '/audiojs/audio.min.js', array(), '1.0.0', true );
+    wp_enqueue_script( 'theme-general', get_template_directory_uri() . '/js/general.js', array('jquery'), '1.0.0', true );
 }
 
 add_action( 'wp_enqueue_scripts', 'theme_scripts' );
