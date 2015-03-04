@@ -1,3 +1,35 @@
-.container {
-  max-width: 1200px;
+@mixin desktop {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: 992px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+// I'm going to be bad and include the possiblility for a few "mobile-second" queries
+@mixin phone-max {
+  @media (max-width: 767px) {
+    @content;
+  }
+}
+
+// some example mixins
+@mixin font-open-sans() {
+  font-family: 'Open Sans',sans-serif;
+}
+
+@mixin image-border($padding: 15px) {
+  background: #fff;
+  padding: $padding;
+  box-shadow: 0 3px 3px rgba(0,0,0,0.2), 0 3px 0 rgba(0,0,0,0.1);
 }
