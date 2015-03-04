@@ -2,5 +2,38 @@
 Theme Name: Boztown WP Starter
 Author: Ryan Bosinger
 */
-.container {
-  max-width: 1200px; }
+/* line 1, styles/_login.scss */
+body.login {
+  background: #333;
+  color: white;
+}
+/* line 6, styles/_login.scss */
+body.login h1 a {
+  background-image: url(img/logo.png);
+  height: 132px;
+  border-top: 3px solid black;
+}
+
+/* NOTE
+html is set to 62.5% so that all the REM measurements throughout Skeleton
+are based on 10px sizing. So basically 1.5rem = 15px :) */
+/* line 4, styles/_layout.scss */
+html {
+  font-size: 42.5%;
+}
+@media (min-width: 992px) {
+  /* line 4, styles/_layout.scss */
+  html {
+    font-size: 62.5%;
+  }
+}
+
+/* line 13, styles/_layout.scss */
+body {
+  font-size: 1.5em;
+  /* currently ems cause chrome bug misinterpreting rems on body element */
+  line-height: 1.5;
+  font-weight: 400;
+  font-family: Helvetica, Arial, sans-serif;
+  color: #222;
+}
