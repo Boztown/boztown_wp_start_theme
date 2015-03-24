@@ -25,3 +25,4 @@ function my_custom_sizes( $sizes ) {
 }
 add_filter( 'image_size_names_choose', 'my_custom_sizes' );
 
+add_theme_support( 'html5', array( 'search-form' ) );
