@@ -1,11 +1,5 @@
-@mixin desktop {
-  @media (min-width: 1200px) {
-    @content;
-  }
-}
-
-@mixin desktop {
-  @media (min-width: 992px) {
+@mixin phone-wide {
+  @media (min-width: 480px) {
     @content;
   }
 }
@@ -16,9 +10,20 @@
   }
 }
 
-// I'm going to be bad and include the possiblility for a few "mobile-second" queries
-@mixin phone-max {
-  @media (max-width: 767px) {
+@mixin tablet-wide {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin desktop-wide {
+  @media (min-width: 1280px) {
     @content;
   }
 }
