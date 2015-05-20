@@ -24,6 +24,7 @@
     "photoswipe": "dimsemenov/PhotoSwipe",
     "modernizr": "~2.8.3",
     "wowjs": "~1.0.3",
-    "gsap": "~1.15.1"
+    "gsap": "~1.15.1",
+    "bootstrap-sass" : "latest"
   }
 }
