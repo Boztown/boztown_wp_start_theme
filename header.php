@@ -7,7 +7,7 @@
   <title><?php wp_title(); ?></title>
   <?php wp_head(); ?>
 </head>
-<body <?php body_class( $class ); ?>>
+<body <?php body_class(); ?>>
 
 <header class="primary">
   <div class="container">
