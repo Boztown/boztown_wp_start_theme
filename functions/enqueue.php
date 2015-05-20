@@ -9,8 +9,6 @@ add_action( 'wp_enqueue_scripts', 'theme_scripts' );
 
 
 function theme_styles() {
-    wp_enqueue_style( 'bootstrap', get_stylesheet_directory_uri() . '/lib/bootstrap/css/bootstrap.min.css' );
-    wp_enqueue_style( 'bootstrap-theme', get_stylesheet_directory_uri() . '/lib/bootstrap/css/bootstrap-theme.min.css' );
     wp_enqueue_style( 'main', get_stylesheet_uri() );
 }
 
