@@ -1,11 +1,14 @@
 body.login {
 
-  background: #333;
-  color: white;
+  background: #fff;
+  color: #333;
 
   h1 a {
     background-image: url(img/logo.png);
-    height: 132px;
-    border-top: 3px solid black;
+    height: 100px;
+  }
+
+  form {
+    box-shadow: none;
   }
 }
