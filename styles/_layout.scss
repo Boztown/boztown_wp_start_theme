@@ -17,3 +17,14 @@ body {
   font-family: Helvetica, Arial, sans-serif;
   color: #222; 
 }
+
+header.primary {
+
+  padding: 2rem;
+  text-align: center;
+
+  .logo {
+    width: 100px;
+    display: inline-block;
+  }
+}
