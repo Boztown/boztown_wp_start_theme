@@ -83,4 +83,4 @@ function boztown_customize_css()
 }
 
 // how about putting these in the footer so devs can override using CSS in the actual stylesheets?
-add_action( 'wp_footer', 'boztown_customize_css');
+//add_action( 'wp_footer', 'boztown_customize_css');
