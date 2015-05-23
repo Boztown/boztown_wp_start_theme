@@ -25,6 +25,8 @@
     "modernizr": "~2.8.3",
     "wowjs": "~1.0.3",
     "gsap": "~1.15.1",
-    "bootstrap-sass" : "latest"
+    "bootstrap-sass": "latest",
+    "iconate": "*",
+    "fontawesome": "~4.3.0"
   }
 }
