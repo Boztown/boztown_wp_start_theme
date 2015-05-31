@@ -11,11 +11,13 @@
 
 <header class="primary">
   <div class="container">
-    <i id="iconn" class="fa fa-bars fa-lg"></i>
+    <span id="hamburger">
+      <i id="hamburger-icon" class="fa fa-bars fa-lg"></i>
+    </span>
     <a href="<?php echo home_url(); ?>">
       <img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" class="logo" alt="<?php wp_title(); ?>">
     </a>
-    <nav class="primary">
+    <nav id="primary-nav" class="primary">
       <?php wp_nav_menu(); ?>
     </nav>
   </div>
