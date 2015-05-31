@@ -1,4 +1,4 @@
-  <?php echo get_template_directory(); ?>
+
   <?php 
     if(file_exists(get_template_directory() . '/footer-photoswipe.php')) {
       include('footer-photoswipe.php'); 
