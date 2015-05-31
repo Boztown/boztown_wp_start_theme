@@ -27,6 +27,7 @@
     "gsap": "~1.15.1",
     "bootstrap-sass": "latest",
     "iconate": "*",
-    "fontawesome": "~4.3.0"
+    "fontawesome": "~4.3.0",
+    "picturefill": "~2.3.1"
   }
 }
