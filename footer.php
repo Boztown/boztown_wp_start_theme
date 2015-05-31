@@ -1,11 +1,11 @@
-  <?php //print_r( get_theme_mod('themename_theme_options[header_select]') ); ?>
+  <?php echo get_template_directory(); ?>
   <?php 
-    if(file_exists('footer-photoswipe.php')) {
+    if(file_exists(get_template_directory() . '/footer-photoswipe.php')) {
       include('footer-photoswipe.php'); 
     }
   ?>
   <?php 
-    if(file_exists('footer-acf-maps.php')) {
+    if(file_exists(get_template_directory() . '/footer-acf-maps.php')) {
       include('footer-acf-maps.php'); 
     }
   ?>
