@@ -22,6 +22,7 @@ module.exports = function(grunt) {
         }
       }
     },
+
     uglify: {
       dist: {
         files: {
@@ -29,6 +30,7 @@ module.exports = function(grunt) {
         }
       }
     },
+
     watch: {
       scripts: {
         files: ['js/*.js'],
@@ -44,6 +46,36 @@ module.exports = function(grunt) {
           spawn: false,
         },        
       }
+    },
+
+    rsync: {
+        options: {
+            args: ["--verbose"],
+            exclude: [".git*","*.scss","node_modules"],
+            recursive: true
+        },
+        dist: {
+            options: {
+                src: "./",
+                dest: "../dist"
+            }
+        },
+        stage: {
+            options: {
+                src: "../dist/",
+                dest: "/var/www/site",
+                host: "user@staging-host",
+                delete: true // Careful this option could cause data loss, read the docs! 
+            }
+        },
+        prod: {
+            options: {
+                src: "../dist/",
+                dest: "/var/www/site",
+                host: "user@live-host",
+                delete: true // Careful this option could cause data loss, read the docs! 
+            }
+        }
     }
   });
 
@@ -55,6 +87,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-compass');
+  grunt.loadNpmTasks("grunt-rsync");
   grunt.loadNpmTasks('grunt-global-config');
 
   grunt.registerTask('compress', ['uglify']);
