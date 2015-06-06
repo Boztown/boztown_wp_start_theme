@@ -24,9 +24,12 @@ module.exports = function(grunt) {
     },
 
     uglify: {
+      options: {
+        mangle: false
+      },
       dist: {
         files: {
-          'dist/output.min.js': ['js/**/*.js']
+          'dist/scripts.min.js': conf.scripts
         }
       }
     },
@@ -62,25 +65,25 @@ module.exports = function(grunt) {
         },
         stage: {
             options: {
-                src: "../dist/",
+                src: "dist",
                 dest: "/var/www/site",
-                host: "user@staging-host",
-                delete: true // Careful this option could cause data loss, read the docs! 
+                host: conf.environments.staging.user + "@" + conf.environments.staging.host,
+                delete: false // Careful this option could cause data loss, read the docs! 
             }
         },
         prod: {
             options: {
                 src: "../dist/",
                 dest: "/var/www/site",
-                host: "user@live-host",
-                delete: true // Careful this option could cause data loss, read the docs! 
+                host: conf.environments.production.user + "@" + conf.environments.production.host,
+                delete: false // Careful this option could cause data loss, read the docs! 
             }
         }
     }
   });
 
   grunt.registerTask('deploy', 'Deploy site.', function() {
-    grunt.log.writeln(conf.environments.production.address);
+    grunt.log.writeln(conf.environments.production.host);
   });
 
   grunt.loadNpmTasks('grunt-contrib-jshint');
