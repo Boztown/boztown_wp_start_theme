@@ -86,12 +86,19 @@ module.exports = function(grunt) {
     grunt.log.writeln(conf.environments.production.host);
   });
 
+  grunt.registerTask('generate_post_type', 'Create a custom post type.', function(n) {
+    if (n == null) {
+      grunt.log.warn('Post name must be specified, like makePost:PostNameGoesHere.');
+    }
+  });
+
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-compass');
   grunt.loadNpmTasks("grunt-rsync");
   grunt.loadNpmTasks('grunt-global-config');
+  grunt.loadNpmTasks('grunt-prompt');
 
   grunt.registerTask('compress', ['uglify']);
   grunt.registerTask('default', ['jshint']);
