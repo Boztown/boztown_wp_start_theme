@@ -11,6 +11,12 @@
     "grunt-contrib-watch": "^0.6.1",
     "grunt-global-config": "^0.1.0",
     "grunt-rsync": "^0.6.2",
-    "gulp": "^3.9.0"
+    "gulp": "^3.9.0",
+    "gulp-compass": "^2.1.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-jshint": "^1.11.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.0.3",
+    "gulp-uglify": "^1.2.0"
   }
 }
