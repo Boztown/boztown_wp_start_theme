@@ -16,8 +16,18 @@ gulp.task('compass', function() {
     .pipe(gulp.dest('dist'));
 });
 
+// Concatenate & Minify JS
+gulp.task('scripts', function() {
+    return gulp.src('js/*.js')
+        .pipe(concat('all.js'))
+        .pipe(gulp.dest('dist'))
+        .pipe(rename('all.min.js'))
+        .pipe(uglify())
+        .pipe(gulp.dest('dist'));
+});
+
 // Watch Files For Changes
 gulp.task('watch', function() {
-    //gulp.watch('js/*.js', ['lint', 'scripts']);
+    gulp.watch('js/*.js', ['scripts']);
     gulp.watch('styles/*.scss', ['compass']);
 });
