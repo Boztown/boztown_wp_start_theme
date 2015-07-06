@@ -5,6 +5,16 @@ var compass = require('gulp-compass');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
+var browserSync = require('browser-sync').create();
+
+gulp.task('serve', ['compass'], function() {
+
+    browserSync.init({
+        proxy: "startertheme.dev"
+    });
+
+    gulp.watch('styles/*.scss', ['compass']);
+});
 
 gulp.task('compass', function() {
   gulp.src('./styles/*.scss')
@@ -13,7 +23,8 @@ gulp.task('compass', function() {
       css: '',
       sass: 'styles'
     }))
-    .pipe(gulp.dest('dist'));
+    .pipe(gulp.dest('dist'))
+    .pipe(browserSync.stream());
 });
 
 // Concatenate & Minify JS
@@ -31,3 +42,5 @@ gulp.task('watch', function() {
     gulp.watch('js/*.js', ['scripts']);
     gulp.watch('styles/*.scss', ['compass']);
 });
+
+gulp.task('default', ['serve']);
