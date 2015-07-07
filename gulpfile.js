@@ -28,18 +28,31 @@ gulp.task('compass', function() {
 });
 
 // Concatenate & Minify JS
-gulp.task('scripts', function() {
-    return gulp.src('js/*.js')
-        .pipe(concat('all.js'))
-        .pipe(gulp.dest('dist'))
-        .pipe(rename('all.min.js'))
-        .pipe(uglify())
-        .pipe(gulp.dest('dist'));
+gulp.task('vendor-scripts', function() {
+    return gulp.src([
+      'bower_components/picturefill/dist/picturefill.min.js'
+    ])
+    .pipe(concat('vendor.js'))
+    .pipe(gulp.dest('dist'))
+    .pipe(rename('vendor.min.js'))
+    .pipe(uglify())
+    .pipe(gulp.dest('dist'));
+});
+
+gulp.task('custom-scripts', function() {
+    return gulp.src([
+      'js/*.js'
+    ])
+    .pipe(concat('custom.js'))
+    .pipe(gulp.dest('dist'))
+    .pipe(rename('custom.min.js'))
+    .pipe(uglify())
+    .pipe(gulp.dest('dist'));
 });
 
 // Watch Files For Changes
 gulp.task('watch', function() {
-    gulp.watch('js/*.js', ['scripts']);
+    gulp.watch('js/*.js', ['custom-scripts']);
     gulp.watch('styles/*.scss', ['compass']);
 });
 
