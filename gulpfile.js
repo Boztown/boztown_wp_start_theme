@@ -8,6 +8,7 @@ var minifyCSS = require('gulp-minify-css');
 var rename = require('gulp-rename');
 var browserSync = require('browser-sync').create();
 var rsync = require('gulp-rsync');
+var cat  = require('gulp-cat');
 
 gulp.task('serve', ['compass'], function() {
 
@@ -67,6 +68,11 @@ gulp.task('custom-scripts', function() {
 gulp.task('watch', function() {
     gulp.watch('js/*.js', ['custom-scripts']);
     gulp.watch('styles/*.scss', ['compass']);
+});
+
+gulp.task('init', ['vendor-scripts', 'vendor-css'], function() {
+    return gulp.src('./build/welcome.txt')
+        .pipe(cat());
 });
 
 gulp.task('default', ['serve']);
