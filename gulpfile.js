@@ -4,6 +4,7 @@ var sass = require('gulp-sass');
 var compass = require('gulp-compass');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
+var minifyCSS = require('gulp-minify-css');
 var rename = require('gulp-rename');
 var browserSync = require('browser-sync').create();
 
@@ -25,6 +26,17 @@ gulp.task('compass', function() {
     }))
     .pipe(gulp.dest('dist'))
     .pipe(browserSync.stream());
+});
+
+gulp.task('vendor-css', function() {
+    return gulp.src([
+      'bower_components/fontawesome/css/font-awesome.min.css'
+    ])
+    .pipe(concat('vendor.css'))
+    .pipe(gulp.dest('dist'))
+    .pipe(minifyCSS())
+    .pipe(rename('vendor.min.css'))
+    .pipe(gulp.dest('dist'));
 });
 
 // Concatenate & Minify JS
