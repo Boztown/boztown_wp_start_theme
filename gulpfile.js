@@ -32,7 +32,7 @@ gulp.task('compass', function() {
 
 gulp.task('vendor-css', function() {
     return gulp.src([
-      'bower_components/fontawesome/css/font-awesome.min.css'
+      'vendor/fontawesome/css/font-awesome.min.css'
     ])
     .pipe(concat('vendor.css'))
     .pipe(gulp.dest('dist'))
@@ -44,7 +44,7 @@ gulp.task('vendor-css', function() {
 // Concatenate & Minify JS
 gulp.task('vendor-scripts', function() {
     return gulp.src([
-      'bower_components/picturefill/dist/picturefill.min.js'
+      'vendor/picturefill/dist/picturefill.min.js'
     ])
     .pipe(concat('vendor.js'))
     .pipe(gulp.dest('dist'))
