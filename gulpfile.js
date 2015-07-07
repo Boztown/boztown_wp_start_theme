@@ -9,6 +9,7 @@ var rename = require('gulp-rename');
 var browserSync = require('browser-sync').create();
 var rsync = require('gulp-rsync');
 var cat  = require('gulp-cat');
+var autoprefixer = require('gulp-autoprefixer');
 
 gulp.task('serve', ['compass'], function() {
 
@@ -26,7 +27,12 @@ gulp.task('compass', function() {
       css: '',
       sass: 'styles'
     }))
-    .pipe(gulp.dest('dist'))
+    .pipe(autoprefixer({
+        browsers: ['last 2 versions'],
+        cascade: false
+    }))
+    .pipe(rename('style.css'))
+    .pipe(gulp.dest('./'))
     .pipe(browserSync.stream());
 });
 
