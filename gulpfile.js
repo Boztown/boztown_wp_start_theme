@@ -7,6 +7,7 @@ var uglify = require('gulp-uglify');
 var minifyCSS = require('gulp-minify-css');
 var rename = require('gulp-rename');
 var browserSync = require('browser-sync').create();
+var rsync = require('gulp-rsync');
 
 gulp.task('serve', ['compass'], function() {
 
