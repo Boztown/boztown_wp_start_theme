@@ -17,12 +17,12 @@ gulp.task('serve', ['compass'], function() {
         proxy: "startertheme.dev"
     });
 
-    gulp.watch('styles/*.scss', ['compass']);
-    gulp.watch('js/*.js', ['custom-scripts']);
+    gulp.watch('styles/**/*.scss', ['compass']);
+    gulp.watch('js/**/*.js', ['custom-scripts']);
 });
 
 gulp.task('compass', function() {
-  gulp.src('./styles/*.scss')
+  gulp.src('./styles/**/*.scss')
     .pipe(compass({
       config_file: './config.rb',
       css: '',
