@@ -18,6 +18,7 @@ gulp.task('serve', ['compass'], function() {
     });
 
     gulp.watch('styles/*.scss', ['compass']);
+    gulp.watch('js/*.js', ['custom-scripts']);
 });
 
 gulp.task('compass', function() {
