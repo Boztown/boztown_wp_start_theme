@@ -9,7 +9,7 @@ add_action( 'wp_enqueue_scripts', 'theme_scripts' );
 
 
 function theme_styles() {
-    wp_enqueue_style( 'vendor', get_template_directory_uri() . '/dist/vendor.min.css' ); );
+    wp_enqueue_style( 'vendor', get_template_directory_uri() . '/dist/vendor.min.css' );
     wp_enqueue_style( 'main', get_stylesheet_uri() );
 }
 
