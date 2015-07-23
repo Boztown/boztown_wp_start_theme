@@ -10,6 +10,7 @@ var browserSync = require('browser-sync').create();
 var rsync = require('gulp-rsync');
 var cat  = require('gulp-cat');
 var autoprefixer = require('gulp-autoprefixer');
+var bower = require('gulp-bower');
 
 gulp.task('serve', ['compass'], function() {
 
@@ -77,9 +78,18 @@ gulp.task('watch', function() {
     gulp.watch('styles/*.scss', ['compass']);
 });
 
-gulp.task('init', ['vendor-scripts', 'vendor-css'], function() {
+gulp.task('bower', function() {
+  return bower({ cmd: 'install'});
+});
+
+gulp.task('init', ['bower', 'vendor-scripts', 'vendor-css', 'custom-scripts'], function() {
     return gulp.src('./build/welcome.txt')
         .pipe(cat());
 });
 
-gulp.task('default', ['serve']);
+gulp.task('start', ['init', 'serve'], function() {
+    return gulp.src('./build/welcome.txt')
+        .pipe(cat());
+});
+
+gulp.task('default', ['start']);
